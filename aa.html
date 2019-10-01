@@ -282,3 +282,101 @@
 			<span class="foot">FOLLOW US FOR THE LATEST UPDATES AND JOIN THE CONVERSATION.</span>
 		</div>
 </html>
+
+-----------------------------------------------
+Restart server
+
+Node2 server stop
+-------------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode2Profile/bin
+
+./stopServer.sh SupClusterMember2 -user psadmin -password psadmin
+./stopServer.sh AppClusterMember2 -user psadmin -password psadmin
+./stopServer.sh MEClusterMember2 -user psadmin -password psadmin
+./stopNode.sh -user psadmin -password psadmin
+
+Node1 server stop
+-----------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode1Profile/bin
+
+./stopServer.sh SupClusterMember1 -user psadmin -password psadmin
+./stopServer.sh AppClusterMember1 -user psadmin -password psadmin
+./stopServer.sh MEClusterMember1-user psadmin -password psadmin
+./stopNode.sh -user psadmin -password psadmin
+
+Dmgr server stop
+----------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSDmgrProfile/bin
+./stopManager.sh -user psadmin -password psadmin
+
+Dmgr server start
+-----------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSDmgrProfile/
+
+rm -rf wstemp/ temp/
+
+cd /wasnd/IBM_INSTALL/profiles/PSDmgrProfile/bin
+
+./startManager.sh
+
+Node1 server start
+------------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode1Profile/
+
+rm -rf wstemp/ temp/
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode1Profile/bin
+
+./startNode.sh
+./startServer.sh MEClusterMember1
+./startServer.sh AppClusterMember1
+./startServer.sh SupClusterMember1
+
+Node2 server start
+------------------
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode2Profile/
+
+rm -rf wstemp/ temp/
+
+cd /wasnd/IBM_INSTALL/profiles/PSNode2Profile/bin
+
+./startNode.sh
+./startServer.sh MEClusterMember2
+./startServer.sh AppClusterMember2
+./startServer.sh SupClusterMember2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
